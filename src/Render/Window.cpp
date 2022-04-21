@@ -66,8 +66,8 @@ void Window::display() {
     GLfloat red[4] = {1, 0, 0, 1};
     GLfloat transparentGreen[4] = {0, 1, 0, 0.5};
     glUniform4fv(uniformColor, 1, black);
-    getRootNode()->operation(renderText);
-
+    Renderer *renderer = createRenderer();
+    renderer->render(this, _rootNode);
     glFlush();
 }
 
@@ -112,7 +112,11 @@ void Window::prepareFont() {
         return;
     }
     //shaderのパス汚い。
-    if (FT_New_Face(ft, "/Users/ikedayu/Library/Fonts/851MkPOP_100.ttf", 0, &face)) {
+    if (FT_New_Face(ft, "../fonts/851MkPOP_100.ttf", 0, &face)) {
         return;
     }
+}
+
+Renderer *Window::createRenderer() {
+    return new Renderer();
 }

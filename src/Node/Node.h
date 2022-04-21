@@ -34,6 +34,8 @@ public:
 
     int getId();
 
+    virtual std::string getClassName() = 0;
+
     virtual int getWidth() = 0;
 
     virtual int getHeight() = 0;

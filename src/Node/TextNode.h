@@ -18,6 +18,8 @@ public:
 
     std::string trim(const std::string &string, const char *trimCharacterList = " \t\v\r\n");
 
+    std::string getClassName() final { return "TextNode"; };
+
     int getWidth() final;
 
     int getHeight() final;

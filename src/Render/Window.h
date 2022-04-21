@@ -22,16 +22,33 @@
 #include "../utils/shader/shader.h"
 #include "../Node/ElementNode.h"
 #include "../Factory/TextSizeFactory/TextSizeFactory.h"
-#include "render_functions.h"
+
 
 #define WIDTH 1024
 #define HEIGHT 1024
+
+class Renderer;
+
+struct Point {
+    GLfloat x;
+    GLfloat y;
+    GLfloat s;
+    GLfloat t;
+};
 
 class Window {
 public:
     Window(ElementNode *rootNode);
 
     ~Window();
+
+    GLuint program;
+    GLint attributeCoord;
+    GLint uniformTex;
+    GLint uniformColor;
+    GLuint vbo;
+    FT_Library ft;
+    FT_Face face;
 
     void start();
 
@@ -51,27 +68,16 @@ public:
 
     void prepareFont();
 
-    GLuint program;
-    GLint attributeCoord;
-    GLint uniformTex;
-    GLint uniformColor;
-    struct Point {
-        GLfloat x;
-        GLfloat y;
-        GLfloat s;
-        GLfloat t;
-    };
-
-    GLuint vbo;
-
-    FT_Library ft;
-    FT_Face face;
+    GLFWwindow *getWindow() { return _window; };
 
 private:
     char *_windowTitle;
     GLFWwindow *_window;
     ElementNode *_rootNode;
+
+    Renderer *createRenderer();
 };
 
+#include "Renderer.h"
 
 #endif //YU_TOY_BROWSER_WINDOW_H

@@ -38,6 +38,7 @@ void parse(Node *rootNode) {
             element->setId(id);
             element->setParent(rootNode);
             rootNode->addChild(element);
+//            element->setPrev();
             id++;
             parse(element);
         }
@@ -65,6 +66,7 @@ void parse(Node *rootNode) {
                 id++;
                 text->setId(id);
                 text->setParent(element);
+                element->setPrev();
                 element->addChild(text);
                 rootNode->addChild(element);
                 id++;
