@@ -1,7 +1,7 @@
 #ifndef YU_TOY_BROWSER_RENDERER_H
 #define YU_TOY_BROWSER_RENDERER_H
 
-#include "Window.h"
+#include "../WIndow/Window.h"
 
 class Renderer {
 public:

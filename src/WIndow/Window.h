@@ -23,7 +23,6 @@
 #include "../Node/ElementNode.h"
 #include "../Factory/TextSizeFactory/TextSizeFactory.h"
 
-
 #define WIDTH 1024
 #define HEIGHT 1024
 
@@ -78,6 +77,6 @@ private:
     Renderer *createRenderer();
 };
 
-#include "Renderer.h"
+#include "../Render/Renderer.h"
 
 #endif //YU_TOY_BROWSER_WINDOW_H
