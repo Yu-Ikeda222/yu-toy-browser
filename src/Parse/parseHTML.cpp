@@ -38,8 +38,8 @@ void parse(Node *rootNode) {
             element->setId(id);
             element->setParent(rootNode);
             rootNode->addChild(element);
-//            element->setPrev();
             id++;
+            element->setPrev();
             parse(element);
         }
             //is_textNodeみたいにできたらいいんだろうな、今のところ次（兄弟がないやつをText）にしている。
@@ -56,7 +56,10 @@ void parse(Node *rootNode) {
             if (!content) {
                 continue;
             }
-            if (content[0] != '\0') {
+            std::string trimContent = trim(content);
+            // ここにかかっている
+            if (trimContent.size() > 0) {
+//                printf("%s\n", trimContent.c_str());
                 TextNode *text = new TextNode(node);
                 xmlNodePtr elementPtr = NULL;
                 elementPtr = xmlNewNode(NULL, (xmlChar *) ("text"));
@@ -66,13 +69,35 @@ void parse(Node *rootNode) {
                 id++;
                 text->setId(id);
                 text->setParent(element);
-                element->setPrev();
+                printf("%s\n", text->getParent()->getNode()->name);
                 element->addChild(text);
                 rootNode->addChild(element);
                 id++;
+                element->setPrev();
+                if (Node *prev = element->getPrev()) {
+                    printf("prev: %s\n", prev->getNode()->name);
+                }
             }
 
         }
 
     }
+}
+
+std::string trim(const std::string &string, const char *trimCharacterList) {
+    std::string result;
+    std::string reducedString;
+    std::string::size_type left = string.find_first_not_of(trimCharacterList);
+    if (left != std::string::npos) {
+        std::string::size_type right = string.find_last_not_of(trimCharacterList);
+        reducedString = string.substr(left, right - left + 1);
+    }
+
+    for (int i = 0; i < reducedString.size(); ++i) {
+        if ((!isspace(reducedString[i]) || (isspace(reducedString[i]) && !isspace(reducedString[i + 1]))) &&
+            reducedString[i] != '\n') {
+            result.push_back(reducedString[i]);
+        }
+    }
+    return result;
 }

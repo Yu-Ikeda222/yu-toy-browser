@@ -2,9 +2,9 @@
 #define Head_h
 
 #include <stdio.h>
-#include "../ElementNode.h"
+#include "../InlineElementNode.h"
 
-class Head : public ElementNode {
+class Head : public InlineElementNode {
 public:
     Head(htmlNodePtr node);
 

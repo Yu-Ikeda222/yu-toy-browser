@@ -1,7 +1,6 @@
 #include "Em.h"
 
-Em::Em(htmlNodePtr node) : ElementNode(node) {
-    setDisplayType("inline");
+Em::Em(htmlNodePtr node) : InlineElementNode(node) {
 }
 
 std::string Em::getClassName() {

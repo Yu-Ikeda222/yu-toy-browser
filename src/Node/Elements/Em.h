@@ -2,9 +2,9 @@
 #define Em_h
 
 #include <stdio.h>
-#include "../ElementNode.h"
+#include "../InlineElementNode.h"
 
-class Em : public ElementNode {
+class Em : public InlineElementNode {
 public:
     Em(htmlNodePtr node);
 

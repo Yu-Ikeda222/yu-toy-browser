@@ -1,6 +1,6 @@
 #include "Head.h"
 
-Head::Head(htmlNodePtr node) : ElementNode(node) {
+Head::Head(htmlNodePtr node) : InlineElementNode(node) {
 
 }
 

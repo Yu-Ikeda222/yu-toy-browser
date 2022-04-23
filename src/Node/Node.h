@@ -57,6 +57,10 @@ public:
     //引数に何か渡した方がいい？
     void setPrev();
 
+    std::string getDisplayType();
+
+    void setDisplayType(std::string displayType);
+
     //operationの名前変えて、下の使ってないやつ消す
     virtual void operation(renderTextFunc renderTextFunc) = 0;
 
@@ -73,6 +77,8 @@ private:
     Node *_prev = nullptr;
     std::map<std::string, std::string> _attributes;
     std::vector<Node *> _children;
+    std::string _displayType;
+
 };
 
 #endif /* YU_TOY_BROWSER_NODE_h */

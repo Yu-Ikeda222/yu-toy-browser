@@ -1,7 +1,7 @@
 #include "Ul.h"
 
-Ul::Ul(htmlNodePtr node) : ElementNode(node) {
-    setDisplayType("block");
+Ul::Ul(htmlNodePtr node) : BlockElementNode(node) {
+    ("block");
 }
 
 std::string Ul::getClassName() {

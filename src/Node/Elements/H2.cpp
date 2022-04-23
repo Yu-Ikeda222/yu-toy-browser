@@ -1,7 +1,7 @@
 #include "H2.h"
 
-H2::H2(htmlNodePtr node) : ElementNode(node) {
-    setDisplayType("block");
+H2::H2(htmlNodePtr node) : BlockElementNode(node) {
+
 }
 
 std::string H2::getClassName() {

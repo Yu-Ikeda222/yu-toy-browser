@@ -1,7 +1,7 @@
 #include "Li.h"
 
-Li::Li(htmlNodePtr node) : ElementNode(node) {
-    setDisplayType("block");
+Li::Li(htmlNodePtr node) : BlockElementNode(node) {
+
 }
 
 std::string Li::getClassName() {

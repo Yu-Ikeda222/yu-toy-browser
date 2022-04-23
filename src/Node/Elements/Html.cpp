@@ -1,6 +1,6 @@
 #include "Html.h"
 
-Html::Html(htmlNodePtr node) : ElementNode(node) {
+Html::Html(htmlNodePtr node) : BlockElementNode(node) {
 
 }
 

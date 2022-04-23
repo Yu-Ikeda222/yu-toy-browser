@@ -1,6 +1,6 @@
 #include "Body.h"
 
-Body::Body(htmlNodePtr node) : ElementNode(node) {
+Body::Body(htmlNodePtr node) : BlockElementNode(node) {
 
 }
 

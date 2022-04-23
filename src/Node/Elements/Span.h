@@ -2,9 +2,9 @@
 #define Span_h
 
 #include <stdio.h>
-#include "../ElementNode.h"
+#include "../InlineElementNode.h"
 
-class Span : public ElementNode {
+class Span : public InlineElementNode {
 public:
     Span(htmlNodePtr node);
 

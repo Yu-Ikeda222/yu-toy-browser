@@ -1,7 +1,6 @@
 #include "Div.h"
 
-Div::Div(htmlNodePtr node) : ElementNode(node) {
-    setDisplayType("block");
+Div::Div(htmlNodePtr node) : BlockElementNode(node) {
 }
 
 std::string Div::getClassName() {

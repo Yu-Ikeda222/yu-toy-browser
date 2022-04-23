@@ -1,7 +1,7 @@
 #include "P.h"
 
-P::P(htmlNodePtr node) : ElementNode(node) {
-    setDisplayType("block");
+P::P(htmlNodePtr node) : BlockElementNode(node) {
+
 }
 
 std::string P::getClassName() {

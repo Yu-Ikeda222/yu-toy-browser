@@ -2,9 +2,9 @@
 #define Title_h
 
 #include <stdio.h>
-#include "../ElementNode.h"
+#include "../InlineElementNode.h"
 
-class Title : public ElementNode {
+class Title : public InlineElementNode {
 public:
     Title(htmlNodePtr node);
 

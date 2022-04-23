@@ -1,7 +1,6 @@
 #include "B.h"
 
-B::B(htmlNodePtr node) : ElementNode(node) {
-    setDisplayType("inline");
+B::B(htmlNodePtr node) : InlineElementNode(node) {
 }
 
 std::string B::getClassName() {

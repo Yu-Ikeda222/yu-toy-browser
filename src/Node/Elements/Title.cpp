@@ -1,6 +1,6 @@
 #include "Title.h"
 
-Title::Title(htmlNodePtr node) : ElementNode(node) {
+Title::Title(htmlNodePtr node) : InlineElementNode(node) {
 
 }
 

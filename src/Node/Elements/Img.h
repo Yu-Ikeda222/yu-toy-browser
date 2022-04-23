@@ -1,10 +1,10 @@
-#ifndef Img_h
-#define Img_h
+#ifndef YU_TOY_BROWSER_IMG_H
+#define YU_TOY_BROWSER_IMG_H
 
 #include <stdio.h>
-#include "../ElementNode.h"
+#include "../InlineElementNode.h"
 
-class Img : public ElementNode {
+class Img : public InlineElementNode {
 public:
     Img(htmlNodePtr node);
 
@@ -13,4 +13,4 @@ public:
     std::string getClassName();
 };
 
-#endif /* Img_h */
+#endif /* YU_TOY_BROWSER_IMG_H */

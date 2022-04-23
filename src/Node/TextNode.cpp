@@ -1,26 +1,22 @@
 #include "TextNode.h"
 
 TextNode::TextNode(htmlNodePtr node) : Node(node) {
+    //多分無駄が多い
     _text = trim((char *) (node->content));
+    printf("%s\n", _text.c_str());
 }
 
 int TextNode::getWidth() {
-//    printf("window %d\n",glutGet(GLUT_WINDOW_WIDTH));
     unsigned long textLength = 0;
     Node *parent = getParent();
     if (strcmp((char *) (parent->getNode()->name), "h1") == 0) {
         textLength = _text.size();
-//        printf("%d\n", (int)(text_length * 32));
         return (int) (textLength * 32);
     } else if (strcmp((char *) (parent->getNode()->name), "h2") == 0) {
         textLength = _text.size();
-//        printf("%d\n", (int)(text_length * 24));
         return (int) (textLength * 24);
     } else {
         textLength = _text.size();
-//        printf("%d\n", (int)(text_length * 16));
-
-
         return (int) (textLength * 16);
     }
 }
@@ -47,11 +43,13 @@ int TextNode::getHeight() {
 }
 
 int TextNode::getXPosition() {
-    return 0;
+    Node *parent = getParent();
+    return parent->getXPosition();
 }
 
 int TextNode::getYPosition() {
     Node *parent = getParent();
+    std::string displayName = parent->getDisplayType();
     int yPosition = parent->getHeight() + parent->getYPosition();
     return yPosition;
 }

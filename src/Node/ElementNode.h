@@ -23,11 +23,9 @@ public:
 
     int getHeight();
 
-    int getXPosition();
-
-    int getYPosition();
-
-    char *getDisplayType();
+//    virtual int getXPosition();
+//
+//    virtual int getYPosition();
 
     //operationは以下略
     void operation(renderTextFunc renderTextFunc);
@@ -36,12 +34,8 @@ public:
 
     void setTag(char *tag);
 
-    void setDisplayType(char *displayType);
-
 private:
     std::string _tag;
-    char *_displayType;
-
 };
 
 #endif /* YU_TOY_BROWSER_ELEMENTNODE_H */

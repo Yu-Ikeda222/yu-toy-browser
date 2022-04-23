@@ -2,7 +2,7 @@
 
 ElementNode::ElementNode(htmlNodePtr node) : Node(node) {
     setNode(node);
-    _tag = (char *) getNode()->name;
+    _tag = (char *) (getNode()->name);
     if (node->content) {
         getContent() = (char *) getNode()->content;
     }
@@ -36,26 +36,21 @@ int ElementNode::getHeight() {
     return height;
 }
 
-int ElementNode::getXPosition() {
-    return 0;
-}
-
-int ElementNode::getYPosition() {
-    Node *parent = getParent();
-    Node *prev = getPrev();
-    if (parent != nullptr && prev == nullptr) {
-        return parent->getYPosition();
-    } else if (prev != nullptr) {
-        return prev->getHeight() + prev->getYPosition();
-    } else {
-        return 0;
-    }
-}
-
-char *ElementNode::getDisplayType() {
-    return _displayType;
-}
-
+//int ElementNode::getXPosition() {
+//    return 0;
+//}
+//
+//int ElementNode::getYPosition() {
+//    Node *parent = getParent();
+//    Node *prev = getPrev();
+//    if (parent != nullptr && prev == nullptr) {
+//        return parent->getYPosition();
+//    } else if (prev != nullptr) {
+//        return prev->getHeight() + prev->getYPosition();
+//    } else {
+//        return 0;
+//    }
+//}
 
 //そもそもoperationとかいうのが違う
 void ElementNode::operation(renderTextFunc renderTextFunc) {
@@ -80,10 +75,6 @@ void ElementNode::operation(renderTextFunc renderTextFunc) {
 
 void ElementNode::setTag(char *tag) {
     _tag = tag;
-}
-
-void ElementNode::setDisplayType(char *displayType) {
-    _displayType = displayType;
 }
 
 void ElementNode::layout(Rect rect) {

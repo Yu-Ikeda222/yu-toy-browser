@@ -2,9 +2,9 @@
 #define A_h
 
 #include <stdio.h>
-#include "../ElementNode.h"
+#include "../InlineElementNode.h"
 
-class A : public ElementNode {
+class A : public InlineElementNode {
 public:
     A(htmlNodePtr node);
 

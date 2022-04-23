@@ -2,9 +2,9 @@
 #define H1_h
 
 #include <stdio.h>
-#include "../ElementNode.h"
+#include "../BlockElementNode.h"
 
-class H1 : public ElementNode {
+class H1 : public BlockElementNode {
 public:
     H1(htmlNodePtr node);
 

@@ -2,9 +2,9 @@
 #define Div_h
 
 #include <stdio.h>
-#include "../ElementNode.h"
+#include "../BlockElementNode.h"
 
-class Div : public ElementNode {
+class Div : public BlockElementNode {
 public:
     Div(htmlNodePtr node);
 

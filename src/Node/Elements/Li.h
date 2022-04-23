@@ -2,9 +2,9 @@
 #define Li_h
 
 #include <stdio.h>
-#include "../ElementNode.h"
+#include "../BlockElementNode.h"
 
-class Li : public ElementNode {
+class Li : public BlockElementNode {
 public:
     Li(htmlNodePtr node);
 

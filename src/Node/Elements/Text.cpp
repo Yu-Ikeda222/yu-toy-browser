@@ -1,7 +1,7 @@
 #include "Text.h"
 
-Text::Text(htmlNodePtr node) : ElementNode(node) {
-    setDisplayType("inline");
+Text::Text(htmlNodePtr node) : InlineElementNode(node) {
+
 }
 
 std::string Text::getClassName() {

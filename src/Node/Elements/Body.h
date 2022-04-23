@@ -2,9 +2,9 @@
 #define Body_h
 
 #include <stdio.h>
-#include "../ElementNode.h"
+#include "../BlockElementNode.h"
 
-class Body : public ElementNode {
+class Body : public BlockElementNode {
 public:
     Body(htmlNodePtr node);
 

@@ -21,8 +21,9 @@ void Renderer::render(Window *window, Node *node) {
     }
 
     for (auto child: node->getChildren()) {
-        //少し気持ち悪い
-        child->setPrev();
+        if (strcmp((char *) (child->getNode()->name), "head") == 0) {
+            continue;
+        }
         render(window, child);
     }
 }

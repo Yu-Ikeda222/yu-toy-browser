@@ -56,10 +56,18 @@ void Node::setPrev() {
     Node *parent = getParent();
     if (parent != nullptr) {
         for (int i = 0; i < parent->getChildrenSize(); ++i) {
-            std::vector<Node *> parents_children = parent->getChildren();
-            if (i > 0 && getId() == parents_children[i]->getId()) {
-                _prev = parents_children[i - 1];
+            std::vector<Node *> parentsChildren = parent->getChildren();
+            if (i > 0 && getId() == parentsChildren[i]->getId()) {
+                _prev = parentsChildren[i - 1];
             }
         }
     }
-};
+}
+
+std::string Node::getDisplayType() {
+    return _displayType;
+}
+
+void Node::setDisplayType(std::string displayType) {
+    _displayType = displayType;
+}

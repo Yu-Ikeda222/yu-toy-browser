@@ -2,9 +2,9 @@
 #define Text_h
 
 #include <stdio.h>
-#include "../ElementNode.h"
+#include "../InlineElementNode.h"
 
-class Text : public ElementNode {
+class Text : public InlineElementNode {
 public:
     Text(htmlNodePtr node);
 

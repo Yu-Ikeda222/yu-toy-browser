@@ -2,10 +2,10 @@
 #define Ul_h
 
 #include <stdio.h>
-#include "../ElementNode.h"
+#include "../BlockElementNode.h"
 
 
-class Ul : public ElementNode {
+class Ul : public BlockElementNode {
 public:
     Ul(htmlNodePtr node);
 

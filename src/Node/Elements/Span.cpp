@@ -1,7 +1,7 @@
 #include "Span.h"
 
-Span::Span(htmlNodePtr node) : ElementNode(node) {
-    setDisplayType("inline");
+Span::Span(htmlNodePtr node) : InlineElementNode(node) {
+
 }
 
 std::string Span::getClassName() {

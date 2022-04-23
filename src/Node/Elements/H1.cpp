@@ -1,7 +1,7 @@
 #include "H1.h"
 
-H1::H1(htmlNodePtr node) : ElementNode(node) {
-    setDisplayType("block");
+H1::H1(htmlNodePtr node) : BlockElementNode(node) {
+
 }
 
 std::string H1::getClassName() {

@@ -1,7 +1,7 @@
 #include "Img.h"
 
-Img::Img(htmlNodePtr node) : ElementNode(node) {
-    setDisplayType("block");
+Img::Img(htmlNodePtr node) : InlineElementNode(node) {
+
 }
 
 std::string Img::getClassName() {

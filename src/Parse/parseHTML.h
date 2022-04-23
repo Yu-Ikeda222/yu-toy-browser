@@ -18,5 +18,7 @@ extern ElementNode *read();
 
 extern void parse(Node *rootNode);
 
+extern std::string trim(const std::string &string, const char *trimCharacterList = " \t\v\r\n' '");
+
 
 #endif /* YU_TOY_BROWSER_PARSEHTML_h */

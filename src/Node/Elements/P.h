@@ -2,9 +2,9 @@
 #define P_h
 
 #include <stdio.h>
-#include "../ElementNode.h"
+#include "../BlockElementNode.h"
 
-class P : public ElementNode {
+class P : public BlockElementNode {
 public:
     P(htmlNodePtr node);
 
