@@ -27,11 +27,16 @@ int ElementNode::getWidth() {
     return width;
 }
 
+//少し気持ち悪い
 int ElementNode::getHeight() {
     int height = 0;
     std::vector<Node *> children = getChildren();
     for (int i = 0; i < getChildrenSize(); ++i) {
-        height += children[i]->getHeight();
+        if (children[i]->getDisplayType() != "inline") {
+            height += children[i]->getHeight();
+        } else {
+            height = children[0]->getHeight();
+        }
     }
     return height;
 }

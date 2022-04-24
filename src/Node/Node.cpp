@@ -71,3 +71,15 @@ std::string Node::getDisplayType() {
 void Node::setDisplayType(std::string displayType) {
     _displayType = displayType;
 }
+
+void Node::setFtLibrary(FT_Library ft) {
+    _ft = ft;
+}
+
+void Node::setFace(FT_Face face) {
+    _face = face;
+}
+
+FT_Face Node::getFace() {
+    return _face;
+}

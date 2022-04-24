@@ -9,11 +9,11 @@ TextSizeFactory::~TextSizeFactory() {
 }
 
 int TextSizeFactory::getTextSize(const char *tag) {
-    int text_size = 0;
+    int textSize = 0;
     if (_factory.count(tag) == 0) {
-        text_size = getTextSize();
+        textSize = getTextSize();
     } else {
-        text_size = _factory[tag]();
+        textSize = _factory[tag]();
     }
-    return text_size;
+    return textSize;
 }

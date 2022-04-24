@@ -10,6 +10,9 @@ Renderer::~Renderer() {
 
 void Renderer::render(Window *window, Node *node) {
     if (node->getClassName() == "TextNode") {
+
+//        ここでfaceとかをTextNodeに設定しておく。
+        node->setFace(window->face);
         int renderBufferWidth, renderBufferHeight;
         glfwGetFramebufferSize(window->getWindow(), &renderBufferWidth, &renderBufferHeight);
         float sx = 2.0 / renderBufferWidth;
@@ -27,6 +30,7 @@ void Renderer::render(Window *window, Node *node) {
         render(window, child);
     }
 }
+
 
 void Renderer::renderText(Window *window, const char *text, const char *tagName, float x, float y, float sx, float sy) {
     FT_GlyphSlot g = window->face->glyph;

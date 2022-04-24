@@ -40,8 +40,17 @@ void parse(Node *rootNode) {
             rootNode->addChild(element);
             id++;
             element->setPrev();
+            if (Node *prev = element->getPrev()) {
+                printf("prev: %s\n", prev->getNode()->name);
+                for (auto child: prev->getChildren()) {
+//                    printf("clement: %s \n", element->getNode()->content);
+//                    printf("content: %s \n", child->getNode()->content);
+                }
+            }
             parse(element);
         }
+
+            //gloryでばぐる。spanのなかにimgがあるからこの条件に弾かれてしまう。だからprevがspanタグになってしまって位置がずれている。
             //is_textNodeみたいにできたらいいんだろうな、今のところ次（兄弟がないやつをText）にしている。
         else if (!node->next && rootNode->getChildrenSize() == 0) {
             TextNode *text = new TextNode(node);
@@ -74,9 +83,10 @@ void parse(Node *rootNode) {
                 rootNode->addChild(element);
                 id++;
                 element->setPrev();
-                if (Node *prev = element->getPrev()) {
-                    printf("prev: %s\n", prev->getNode()->name);
-                }
+//                printf("%d text: %d\n", element->getId(), text->getId());
+//                if (Node *prev = element->getPrev()) {
+//                    printf("prev: %s\n", prev->getNode()->name);
+//                }
             }
 
         }

@@ -6,6 +6,9 @@
 #include <vector>
 #include <map>
 #include <libxml/HTMLparser.h>
+#include <ft2build.h>
+#include FT_FREETYPE_H
+#include "freetype/freetype.h"
 #include "../Layout/LayoutConstants.h"
 
 //typedef void (*renderfunc)(int x1, int y1, int x2, int y2, float size);
@@ -66,6 +69,12 @@ public:
 
     virtual void layout(Rect rect) = 0;
 
+    void setFtLibrary(FT_Library ft);
+
+    FT_Face getFace();
+
+    void setFace(FT_Face face);
+
 private:
     htmlNodePtr _node;
     //今のところは使ってないけど使いそう
@@ -78,7 +87,8 @@ private:
     std::map<std::string, std::string> _attributes;
     std::vector<Node *> _children;
     std::string _displayType;
-
+    FT_Library _ft;
+    FT_Face _face;
 };
 
 #endif /* YU_TOY_BROWSER_NODE_h */

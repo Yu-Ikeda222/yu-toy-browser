@@ -15,10 +15,8 @@ int InlineElementNode::getXPosition() {
         }
 //        printf("%d %d\n", prev->getWidth(), prev->getXPosition());
         return prev->getWidth() + prev->getXPosition();
-    } else {
-        return 0;
     }
-
+    return 0;
 }
 
 int InlineElementNode::getYPosition() {

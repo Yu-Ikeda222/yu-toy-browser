@@ -5,6 +5,8 @@
 #include <gl/glew.h>
 #include <GLFW/glfw3.h>
 #include "ElementNode.h"
+#include "../Factory/TextSizeFactory/TextSizeFactory.h"
+
 
 //できるだけすべてprotectedにする。privateとの違いも調べる
 class TextNode : public Node {
@@ -35,6 +37,7 @@ public:
 
 private:
     std::string _text;
+
 };
 
 #endif /* YU_TOY_BROWSER_TEXTNODE_h */
