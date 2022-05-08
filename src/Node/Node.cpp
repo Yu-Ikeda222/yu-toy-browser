@@ -83,3 +83,7 @@ void Node::setFace(FT_Face face) {
 FT_Face Node::getFace() {
     return _face;
 }
+
+std::map<std::string, std::string> Node::getAttribute() {
+    return _attributes;
+}

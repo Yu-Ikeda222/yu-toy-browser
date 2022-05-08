@@ -19,6 +19,8 @@
 #include FT_FREETYPE_H
 #include "freetype/freetype.h"
 
+
+#include "../../lib/stb_image.h"
 #include "../utils/shader/shader.h"
 #include "../Node/ElementNode.h"
 #include "../Factory/TextSizeFactory/TextSizeFactory.h"
@@ -41,13 +43,13 @@ public:
 
     ~Window();
 
-    GLuint program;
-    GLint attributeCoord;
-    GLint uniformTex;
-    GLint uniformColor;
-    GLuint vbo;
-    FT_Library ft;
-    FT_Face face;
+    GLuint _program;
+    GLint _attributeCoord;
+    GLint _uniformTex;
+    GLint _uniformColor;
+    GLuint _vbo;
+    FT_Library _ft;
+    FT_Face _face;
 
     void start();
 

@@ -47,6 +47,8 @@ public:
 
     virtual int getYPosition() = 0;
 
+    std::map<std::string, std::string> getAttribute();
+
     void setNode(htmlNodePtr node);
 
     void setId(int id);

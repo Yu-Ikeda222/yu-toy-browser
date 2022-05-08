@@ -12,7 +12,7 @@ std::string ElementNode::getClassName() {
     return "Element";
 }
 
-
+// 怪しい
 int ElementNode::getWidth() {
     int width = 0;
     int maxChildWidth = 0;
@@ -32,7 +32,7 @@ int ElementNode::getHeight() {
     int height = 0;
     std::vector<Node *> children = getChildren();
     for (int i = 0; i < getChildrenSize(); ++i) {
-        if (children[i]->getDisplayType() != "inline") {
+        if (children[i]->getDisplayType() == "block") {
             height += children[i]->getHeight();
         } else {
             height = children[0]->getHeight();
@@ -40,22 +40,6 @@ int ElementNode::getHeight() {
     }
     return height;
 }
-
-//int ElementNode::getXPosition() {
-//    return 0;
-//}
-//
-//int ElementNode::getYPosition() {
-//    Node *parent = getParent();
-//    Node *prev = getPrev();
-//    if (parent != nullptr && prev == nullptr) {
-//        return parent->getYPosition();
-//    } else if (prev != nullptr) {
-//        return prev->getHeight() + prev->getYPosition();
-//    } else {
-//        return 0;
-//    }
-//}
 
 //そもそもoperationとかいうのが違う
 void ElementNode::operation(renderTextFunc renderTextFunc) {

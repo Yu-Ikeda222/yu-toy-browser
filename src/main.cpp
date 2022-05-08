@@ -1,5 +1,5 @@
 #include "Parse/parseHTML.h"
-#include "WIndow/Window.h"
+#include "Window/Window.h"
 
 
 int main(int argc, char *argv[]) {

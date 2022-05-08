@@ -41,7 +41,7 @@ void parse(Node *rootNode) {
             id++;
             element->setPrev();
             if (Node *prev = element->getPrev()) {
-                printf("prev: %s\n", prev->getNode()->name);
+//                printf("prev: %s\n", prev->getNode()->name);
                 for (auto child: prev->getChildren()) {
 //                    printf("clement: %s \n", element->getNode()->content);
 //                    printf("content: %s \n", child->getNode()->content);
@@ -78,7 +78,6 @@ void parse(Node *rootNode) {
                 id++;
                 text->setId(id);
                 text->setParent(element);
-                printf("%s\n", text->getParent()->getNode()->name);
                 element->addChild(text);
                 rootNode->addChild(element);
                 id++;

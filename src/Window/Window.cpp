@@ -55,7 +55,7 @@ void Window::createWindow() {
 }
 
 void Window::display() {
-    glUseProgram(program);
+    glUseProgram(_program);
     glClearColor(1, 1, 1, 1);
     glClear(GL_COLOR_BUFFER_BIT);
 //     Enable blending, necessary for our alpha texture
@@ -65,7 +65,7 @@ void Window::display() {
     GLfloat black[4] = {0, 0, 0, 1};
     GLfloat red[4] = {1, 0, 0, 1};
     GLfloat transparentGreen[4] = {0, 1, 0, 0.5};
-    glUniform4fv(uniformColor, 1, black);
+    glUniform4fv(_uniformColor, 1, black);
     Renderer *renderer = createRenderer();
     renderer->render(this, _rootNode);
     glFlush();
@@ -93,26 +93,26 @@ ElementNode *Window::getRootNode() {
 }
 
 void Window::prepareShader() {
-    program = createProgram("../src/utils/shader/text.v.glsl",
-                            "../src/utils/shader/text.f.glsl");
-    if (program == 0)
+    _program = createProgram("../src/utils/shader/text.v.glsl",
+                             "../src/utils/shader/text.f.glsl");
+    if (_program == 0)
         return;
-    attributeCoord = getAttrib(program, "coord");
-    uniformTex = getUniform(program, "tex");
-    uniformColor = getUniform(program, "color");
-    if (attributeCoord == -1 || uniformTex == -1 || uniformColor == -1)
+    _attributeCoord = getAttrib(_program, "coord");
+    _uniformTex = getUniform(_program, "tex");
+    _uniformColor = getUniform(_program, "color");
+    if (_attributeCoord == -1 || _uniformTex == -1 || _uniformColor == -1)
         return;
     // Create the vertex buffer object
-    glGenBuffers(1, &vbo);
+    glGenBuffers(1, &_vbo);
 }
 
+//ここ外に出した方がいい
 void Window::prepareFont() {
-    if (FT_Init_FreeType(&ft)) {
+    if (FT_Init_FreeType(&_ft)) {
         fprintf(stderr, "Could not init freetype library\n");
         return;
     }
-    //shaderのパス汚い。
-    if (FT_New_Face(ft, "../fonts/851MkPOP_100.ttf", 0, &face)) {
+    if (FT_New_Face(_ft, "../fonts/851MkPOP_100.ttf", 0, &_face)) {
         return;
     }
 }

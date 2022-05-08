@@ -5,6 +5,6 @@ Body::Body(htmlNodePtr node) : BlockElementNode(node) {
 }
 
 std::string Body::getClassName() {
-    std::string className("body");
+    std::string className("Body");
     return className;
 };

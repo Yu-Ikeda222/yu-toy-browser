@@ -3,17 +3,15 @@
 TextNode::TextNode(htmlNodePtr node) : Node(node) {
     //多分無駄が多い
     _text = trim((char *) (node->content));
-//    printf("%s\n", _text.c_str());
-    if (_text == "glory") {
-        printf("this is glory");
-    }
 }
 
 //faceが設定されてないとダメなのがなんかどうなんだろう間はある
 int TextNode::getWidth() {
     int textWidth = 0;
+    int minWidth = 0;
+    int spaceCounter = 0;
     FT_Face face = getFace();
-    printf("tagName %s\n", (const char *) (getParent()->getNode()->name));
+//    printf("tagName %s %s\n", (const char *) (getParent()->getNode()->name), _text.c_str());
     for (int i = 0; i < _text.size(); ++i) {
         TextSizeFactory *textSizeFactory = new TextSizeFactory();
         int textSize = textSizeFactory->getTextSize((const char *) (getParent()->getNode()->name));
@@ -25,21 +23,19 @@ int TextNode::getWidth() {
             continue;
 
         int width = face->glyph->bitmap.width;
-        printf("%d\n", width);
+
+        if (minWidth == 0 || minWidth > width) {
+            minWidth = width;
+        }
+        //スペースに対する暫定処理
+        if (width == 0) {
+            spaceCounter += 1;
+        }
         textWidth += width;
     }
-//    unsigned long textLength = 0;
-//    Node *parent = getParent();
-//    if (strcmp((char *) (parent->getNode()->name), "h1") == 0) {
-//        textLength = _text.size();
-//        return (int) (textLength * 32);
-//    } else if (strcmp((char *) (parent->getNode()->name), "h2") == 0) {
-//        textLength = _text.size();
-//        return (int) (textLength * 24);
-//    } else {
-//        textLength = _text.size();
-//        return (int) (textLength * 16);
-//    }
+
+    //スペースに対する処理
+    textWidth += minWidth * spaceCounter;
     return textWidth;
 }
 
